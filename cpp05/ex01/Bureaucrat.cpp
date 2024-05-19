@@ -6,7 +6,7 @@
 /*   By: asajid <asajid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 14:52:18 by asajid            #+#    #+#             */
-/*   Updated: 2024/04/12 17:26:20 by asajid           ###   ########.fr       */
+/*   Updated: 2024/05/04 16:50:55 by asajid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	Bureaucrat::signForm(Form &form) const
 	try
 	{
 		form.beSigned(*this);
-		std::cout << name << " signs " << form.getName() << std::endl;
+		std::cout << name << " signed " << form.getName() << std::endl;
 	}
 	catch(const std::exception &e)
 	{

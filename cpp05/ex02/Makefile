@@ -1,7 +1,7 @@
-NAME = ex00
-SRCS := Bureaucrat.cpp  Form.cpp ShrubberyCreationForm.cpp\
-		RobotomyRequestForm.cpp PresidentialPardonForm.cpp main.cpp
 
+
+NAME = ex02
+SRCS := Bureaucrat.cpp  AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp main.cpp
 OBJS := $(SRCS:.cpp=.o)
 CXX := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98
