@@ -6,7 +6,7 @@
 /*   By: asajid <asajid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 16:59:15 by asajid            #+#    #+#             */
-/*   Updated: 2024/05/04 19:39:31 by asajid           ###   ########.fr       */
+/*   Updated: 2024/05/19 13:11:55 by asajid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,11 @@ bool	AForm::getSigned(void) const
 
 void	AForm::beSigned(const Bureaucrat &bureaucrat)
 {
+	if (sign)
+	{
+		std::cerr << "Form is already signed." << std::endl;
+		return;
+	}
 	if (bureaucrat.getGrade() > gradeSign)
 		throw GradeTooLowException();
 	sign = true;

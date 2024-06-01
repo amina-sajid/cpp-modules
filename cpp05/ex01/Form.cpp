@@ -6,16 +6,11 @@
 /*   By: asajid <asajid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 16:59:15 by asajid            #+#    #+#             */
-/*   Updated: 2024/05/10 09:09:47 by asajid           ###   ########.fr       */
+/*   Updated: 2024/05/19 13:39:28 by asajid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
-
-Form::Form(void) : name("default"), sign(false), gradeSign(150), gradeExec(150)
-{
-	return ;
-}
 
 Form::Form(const std::string name, int gradeSign, int gradeExec) :
 	name(name), sign(false), gradeSign(gradeSign), gradeExec(gradeExec)
@@ -74,6 +69,11 @@ bool	Form::getSigned(void) const
 
 void	Form::beSigned(const Bureaucrat &bureaucrat)
 {
+	if (sign)
+	{
+		std::cerr << "Form is already signed." << std::endl;
+		return;
+	}
 	if (bureaucrat.getGrade() > gradeSign)
 		throw GradeTooLowException();
 	sign = true;

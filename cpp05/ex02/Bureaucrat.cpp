@@ -6,16 +6,11 @@
 /*   By: asajid <asajid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 14:52:18 by asajid            #+#    #+#             */
-/*   Updated: 2024/04/13 17:02:44 by asajid           ###   ########.fr       */
+/*   Updated: 2024/05/19 14:05:15 by asajid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-
-Bureaucrat::Bureaucrat(void) : name("default"), grade(150)
-{
-	return ;
-}
 
 Bureaucrat::Bureaucrat(const std::string &name, int grade) : name(name)
 {

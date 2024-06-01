@@ -6,7 +6,7 @@
 /*   By: asajid <asajid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 15:08:46 by asajid            #+#    #+#             */
-/*   Updated: 2024/05/10 09:01:06 by asajid           ###   ########.fr       */
+/*   Updated: 2024/05/19 14:04:49 by asajid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int main()
 		highGradeBureaucrat.decrementGrade();
 		std::cout << highGradeBureaucrat << std::endl;
 
-		lowGradeBureaucrat.incrementGrade();
+		lowGradeBureaucrat.decrementGrade();
 		std::cout << lowGradeBureaucrat << std::endl;
 	}
 	catch (std::exception& e)

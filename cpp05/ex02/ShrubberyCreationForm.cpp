@@ -6,7 +6,7 @@
 /*   By: asajid <asajid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 15:15:13 by asajid            #+#    #+#             */
-/*   Updated: 2024/05/10 09:57:30 by asajid           ###   ########.fr       */
+/*   Updated: 2024/05/19 13:23:42 by asajid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 		throw AForm::FormNotSignedException();
 	if (executor.getGrade() > getGradeExec())
 		throw AForm::GradeTooLowException();
-	std::ofstream file(target + "_shrubbery");
+	std::ofstream file((target + "_shrubbery").c_str());
 	if (!file)
 		std::cerr << "Error while opening Shrubbery target file" << std::endl;
 	file << ASCII_TREE << std::endl;

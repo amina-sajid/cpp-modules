@@ -6,11 +6,12 @@
 /*   By: asajid <asajid@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 16:24:49 by asajid            #+#    #+#             */
-/*   Updated: 2024/05/10 10:09:14 by asajid           ###   ########.fr       */
+/*   Updated: 2024/05/19 13:07:58 by asajid           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
+#include <ctime> 
 
 RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45)
 {
@@ -47,8 +48,8 @@ void RobotomyRequestForm::execute(const Bureaucrat& executor) const
 	if (!getSigned())
 		throw AForm::FormNotSignedException();
 	if (executor.getGrade() > getGradeExec())
-		throw AForm::GradeTooLowException();	
-	std::srand(std::time(nullptr));
+		throw AForm::GradeTooLowException();
+	std::srand(std::time(NULL));
 	bool success = (std::rand() % 2) == 0; // 50% chance of success
 	if (success)
 		std::cout << "Drilling noises... " << _target << " has been robotomized successfully!" << std::endl;
