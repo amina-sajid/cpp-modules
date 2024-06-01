@@ -1,8 +1,10 @@
-NAME = ex00
-SRCS := Bureaucrat.cpp main.cpp
-OBJS := $(SRCS:.cpp=.o)
+
+NAME = convert
 CXX := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98
+SRCS := main.cpp ScalarConverter.cpp
+
+OBJS := $(SRCS:.cpp=.o)
 
 
 all: $(NAME)
@@ -17,6 +19,6 @@ clean:
 fclean: clean
 	@rm -f $(NAME)
 
-re: fclean $(NAME)
+re: fclean all
 
 .PHONY: all clean fclean re

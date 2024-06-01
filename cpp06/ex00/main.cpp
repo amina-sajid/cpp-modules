@@ -1,37 +1,26 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: asajid <asajid@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/21 15:08:46 by asajid            #+#    #+#             */
-/*   Updated: 2024/05/19 14:04:49 by asajid           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "ScalarConverter.hpp"
 
+#define RED   "\033[31m"
+#define GREEN "\033[32m"
+#define RESET "\033[0m"
 
-#include "Bureaucrat.hpp"
-
-int main()
+int main(int ac, char **av)
 {
-	try
+	if (ac != 2)
 	{
-		Bureaucrat highGradeBureaucrat("John", 1);
-		std::cout << highGradeBureaucrat << std::endl;
-
-		Bureaucrat lowGradeBureaucrat("Alice", 150);
-		std::cout << lowGradeBureaucrat << std::endl;
-
-		highGradeBureaucrat.decrementGrade();
-		std::cout << highGradeBureaucrat << std::endl;
-
-		lowGradeBureaucrat.decrementGrade();
-		std::cout << lowGradeBureaucrat << std::endl;
+		std::cout << RED << "Wrong format\n" ;
+		std::cout << RESET;
+		std::cout << GREEN << "correct format : ./convert arg" << std::endl;
+		return 1;
 	}
-	catch (std::exception& e)
+
+	if (av[1][0] == '\0')
 	{
-		std::cout << "Exception caught: " << e.what() << std::endl;
+		std::cout << "Error\nThe arguments should not be empty" << std::endl;
+		return 1;
 	}
+
+	std::string str(av[1]);
+	ScalarConverter::convert(str);
 	return 0;
 }

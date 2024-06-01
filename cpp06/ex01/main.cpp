@@ -1,32 +1,19 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: asajid <asajid@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/21 15:08:46 by asajid            #+#    #+#             */
-/*   Updated: 2024/05/10 09:13:15 by asajid           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-
-#include "Bureaucrat.hpp"
+#include "Serializer.hpp"
 
 int main()
 {
-	try
-	{
-			Bureaucrat bureaucrat("John", 50);
-			Form form("Application Form", 60, 70);
-			std::cout << bureaucrat << std::endl;
-			std::cout << form << std::endl;
-			bureaucrat.signForm(form);
-			std::cout << form << std::endl;
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << "Exception: " << e.what() << std::endl;
-	}
-	return 0;
+	Data data;
+	data.name = "john";
+	data.num = 10;
+	std::cout << "Data: num: " << data.num << "  Name: " << data.name  << std::endl;
+	std::cout << "Data Address:  " << &data << std::endl;
+	uintptr_t serializedPtr = Serializer::serialize(&data);
+	std::cout << "Data serialized to uintptr_t: " << serializedPtr << std::endl;
+	Data *deserializedPtr = Serializer::deserialize(serializedPtr);
+	std::cout << "*Deserialized data: num: " << deserializedPtr->num << " Name: " << deserializedPtr->name << std::endl;
+
+	if (&data == deserializedPtr)
+		std::cout << "process successful." << std::endl;
+	else
+		std::cout << "processFailed." << std::endl;
 }
